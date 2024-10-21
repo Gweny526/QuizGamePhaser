@@ -1,0 +1,55 @@
+{
+    "questions": [
+        {
+            "title": "Qu'est-ce qu'un marchand\nde couleurs?",
+            "answer": ["Un droguiste", "Un teinturier", "Un marchand de farces et attrapes"],
+            "goodAnswer": 0
+        },
+        {
+            "title": "Le blanc de blanc est ...",
+            "answer": ["Une lessive", "Un vin", "Un pic enneigé"],
+            "goodAnswer": 1
+        },
+        {
+
+            "title": "Qu-est-ce qui doit être cassé\n avant d'être utilisé ?",
+            "answer": ["Un oeuf", "Une piñata", "Un gunpla"],
+            "goodAnswer": 0
+        },
+        {
+            "title": "Quel mois de l'année a 28 jours ?",
+            "answer": ["Fevrier", "Fevrier evidemment!", "Tous les mois"],
+            "goodAnswer": 2
+        },
+        {
+            "title": "Je suis grand quand je suis jeune\n et petit quand je suis vieux, qui suis-je?",
+            "answer": ["Une Bougie", "Un Savon", "Un sandwich"],
+            "goodAnswer": 0
+        },
+        {
+            "title": "Qu'est-ce qui ne peut pas parler mais\nrépond quand on lui parle",
+            "answer": ["Un chat", "Un écho", "Un perroquet"],
+            "goodAnswer": 1
+        },
+        {
+            "title": "Qu'est-ce qu'on trouve au milieu\n de Toronto",
+            "answer": ["La lettre O", "Le lac ontario", "Le musée royal"],
+            "goodAnswer": 0
+        },
+        {
+            "title": "Qu'est-ce qui augmente mais ne\ndiminue jamais",
+            "answer": ["La moisissure ", "La faim", "L'âge"],
+            "goodAnswer": 2
+        },
+        {
+            "title": "Qui était le dieu de la guerre \ndans la mythologie grecque ?",
+            "answer": ["Arès", "Hadès", "Hermès"],
+            "goodAnswer": 0
+        },
+        {
+            "title": "Qu'est-ce qui est a la fin d'un\n arc-en-ciel?",
+            "answer": ["La lettre L", "La terre", "Le cosmos"],
+            "goodAnswer": 0
+        }
+  ]
+}
