@@ -75,7 +75,7 @@ function create() {
     quizTitleBG.setVisible(true);
     
     //text start menu
-    quizTitleText = this.add.text(config.width/2 -100, config.height/2-100, 'Quiz de culture général', {fontFamily : 'Arial', fontSize: 40, color: '0xff7777'});
+    quizTitleText = this.add.text(config.width/2 -100, config.height/2-100, 'Quiz de culture générale', {fontFamily : 'Arial', fontSize: 40, color: '0xff7777'});
     quizTitleText.setScale(0.5);
     quizTitleText.setVisible(true);
     
