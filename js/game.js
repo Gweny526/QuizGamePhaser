@@ -29,6 +29,10 @@ let goodAnswerSound;
 let wrongAnswerSound;
 let tweenGoodAnswerPanel = [];
 let tweenWrongAnswerPanel = [];
+let startGameButton;
+let quizTitleBG;
+let quizTitleText;
+let questionPanelImage;
  
  
 function preload() {
@@ -37,8 +41,11 @@ function preload() {
     this.load.image('questionpanel', './assets/Sprites/Label1.png');
     this.load.image('answerpanel', './assets/Sprites/Label2.png');
     this.load.image('nextquestion', './assets/Sprites/Play.png');
-    this.load.image('star', './assets/Sprites/Star.png')
-    this.load.image('restart', './assets/Sprites/Restart.png')
+    this.load.image('star', './assets/Sprites/Star.png');
+    this.load.image('restart', './assets/Sprites/Restart.png');
+    this.load.image('startGameButton', './assets/Sprites/Play.png');
+    this.load.image('quizTitleBG', './assets/Sprites/Quiz.png');
+
  
     //data
     this.load.json('questions', './assets/Data/Questions.json');
@@ -49,6 +56,7 @@ function preload() {
 }
  
 function create() {
+
     // construire l'objet questions à partir du JSON
     questions = this.cache.json.get('questions').questions;
  
@@ -56,33 +64,60 @@ function create() {
     let backImage = this.add.image(0, 0, 'background');
     backImage.setOrigin(0, 0);
     backImage.setScale(0.5);
+
+    //menu start 
+    startGameButton = this.add.image(config.width/2, 510, "startGameButton").setInteractive();
+    startGameButton.setScale(0.5);
+    startGameButton.on('pointerdown', () =>{startGame()});
+    startGameButton.setVisible(true);
+    quizTitleBG = this.add.image(config.width/2, config.height/2 - 75, 'quizTitleBG');
+    quizTitleBG.setScale(1,1);
+    quizTitleBG.setVisible(true);
+    
+    //text start menu
+    quizTitleText = this.add.text(config.width/2 -100, config.height/2-100, 'Quiz de culture général', {fontFamily : 'Arial', fontSize: 40, color: '0xff7777'});
+    quizTitleText.setScale(0.5);
+    quizTitleText.setVisible(true);
+    
+
  
     // dessiner l'image pour les questions
-    let questionPanelImage = this.add.image(config.width/2, 100, 'questionpanel');
+    questionPanelImage = this.add.image(config.width/2, 100, 'questionpanel');
     questionPanelImage.setScale(0.5);
+    questionPanelImage.setVisible(false);
+
  
     // dessiner les 3 images pour les 3 réponses
     answerPanelImage[0] = this.add.image(config.width/2, 220, 'answerpanel').setInteractive();
     answerPanelImage[0].setScale(1.2, 0.8);
     answerPanelImage[0].on('pointerdown', () => {checkAnswer(0)});
+    answerPanelImage[0].setVisible(false);
+
     answerPanelImage[1] = this.add.image(config.width/2, 320, 'answerpanel').setInteractive();
     answerPanelImage[1].setScale(1.2, 0.8);
     answerPanelImage[1].on('pointerdown', () => {checkAnswer(1)});
+    answerPanelImage[1].setVisible(false);
+    
     answerPanelImage[2] = this.add.image(config.width/2, 420, 'answerpanel').setInteractive();
     answerPanelImage[2].setScale(1.2, 0.8);
     answerPanelImage[2].on('pointerdown', () => {checkAnswer(2)});
+    answerPanelImage[2].setVisible(false);
  
     // écrire la question
     questionText = this.add.text(150, 80, questions[questionIndex].title,
     { fontFamily: 'Arial', fontSize: 18, color: '#00ff00' });
+    questionText.setVisible(false);
  
     // écrire les 3 réponses
     answerText1 = this.add.text(150, 200, questions[questionIndex].answer[0],
     { fontFamily: 'Arial', fontSize: 18, color: '#ffff00' });
+    answerText1.setVisible(false);
     answerText2 = this.add.text(150, 300, questions[questionIndex].answer[1],
     { fontFamily: 'Arial', fontSize: 18, color: '#ffff00' });
+    answerText2.setVisible(false);
     answerText3 = this.add.text(150, 400, questions[questionIndex].answer[2],
     { fontFamily: 'Arial', fontSize: 18, color: '#ffff00' });
+    answerText3.setVisible(false);
  
     // dessiner le bouton pour question suivante
     nextQuestionImage = this.add.image(config.width/2, 510, 'nextquestion').setInteractive();
@@ -186,7 +221,22 @@ function nextQuestion(){
     nextQuestionImage.setVisible(false);
  
 }
- 
+function startGame(){
+    startGameButton.setVisible(false);
+    quizTitleBG.setVisible(false);
+    quizTitleText.setVisible(false);
+
+    //reset up the game
+    questionPanelImage.setVisible(true);
+    answerPanelImage[0].setVisible(true);
+    answerPanelImage[1].setVisible(true);
+    answerPanelImage[2].setVisible(true);
+    questionText.setVisible(true);
+    answerText1.setVisible(true);
+    answerText2.setVisible(true);
+    answerText3.setVisible(true);
+
+}
 function restart(){
     //faire disparaitre le bouton restart
     restartImage.setVisible(false);
